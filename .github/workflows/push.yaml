@@ -8,3 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: passy/extract-version-commit@main
+      id: extract-version-commit
+    - name: 'Show output'
+      run: echo "${{ steps.extract-version-commit.outputs.commit }}"
