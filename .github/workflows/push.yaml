@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: passy/extract-version-commit@main
       with:
-        version_regex: "^Flipper Release: v([0-9]+\.[0-9]+\.[0-9]+)(?:\n|$)"
+        version_regex: '^Flipper Release: v([0-9]+\.[0-9]+\.[0-9]+)(?:\n|$)'
       id: extract-version-commit
     - name: 'Show output'
       run: echo "${{ steps.extract-version-commit.outputs.commit }}"
