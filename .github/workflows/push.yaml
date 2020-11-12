@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "env ${{ env }}"
+        echo "job ${{ job }}"
+        echo "github ${{ github }}"
