@@ -7,9 +7,4 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "ref ${{ github.event.ref }}"
-        echo "before ${{ github.event.before }}"
-        echo "after ${{ github.event.after }}"
-        echo "commits ${{ toJson(github.event.commits) }}"
-        echo "full event ${{ toJson(github.event) }}"
+    - uses: passy/extract-version-commit@main
