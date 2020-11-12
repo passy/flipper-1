@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "env ${{ env }}"
-        echo "job ${{ job }}"
-        echo "github ${{ github }}"
-        echo "event ${{ github.event }}"
+        echo "ref ${{ github.event.ref }}"
+        echo "before ${{ github.event.before }}"
+        echo "after ${{ github.event.after }}"
+        echo "commits ${{ github.event.commits }}"
