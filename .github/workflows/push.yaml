@@ -11,3 +11,4 @@ jobs:
         echo "env ${{ env }}"
         echo "job ${{ job }}"
         echo "github ${{ github }}"
+        echo "event ${{ github.event }}"
