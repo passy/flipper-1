@@ -23,7 +23,7 @@ jobs:
       - name: Tag version commit
         if: ${{ steps.extract-version-commit.outputs.commit != ''}}
         id: tag-version-commit
-        uses: passy/tag-version-commit@checkout-head
+        uses: passy/tag-version-commit@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version_tag_prefix: 'v'
