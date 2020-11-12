@@ -12,3 +12,4 @@ jobs:
         echo "before ${{ github.event.before }}"
         echo "after ${{ github.event.after }}"
         echo "commits ${{ toJson(github.event.commits) }}"
+        echo "full event ${{ toJson(github.event) }}"
