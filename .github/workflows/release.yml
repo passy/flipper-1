@@ -26,6 +26,7 @@ jobs:
         uses: passy/tag-version-commit@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ steps.extract-version-commit.outputs.commit }}
           version_tag_prefix: 'v'
           version_assertion_command: 'grep -q "\"version\": \"$version\"" desktop/package.json'
       - name: Create release
