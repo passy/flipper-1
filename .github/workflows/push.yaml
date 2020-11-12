@@ -11,4 +11,4 @@ jobs:
         echo "ref ${{ github.event.ref }}"
         echo "before ${{ github.event.before }}"
         echo "after ${{ github.event.after }}"
-        echo "commits ${{ join(github.event.commits, ', ') }}"
+        echo "commits ${{ toJson(github.event.commits) }}"
