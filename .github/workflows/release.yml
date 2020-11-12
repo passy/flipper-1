@@ -71,7 +71,7 @@ jobs:
   #       path: 'dist/Flipper-mac.dmg'
 
   build-linux:
-    needs:
+    needs: 
       - release
     runs-on: ubuntu-latest
     env:
