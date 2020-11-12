@@ -11,3 +11,4 @@ jobs:
       id: extract-version-commit
     - name: 'Show output'
       run: echo "${{ steps.extract-version-commit.outputs.commit }}"
+      id: show-output
