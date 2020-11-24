@@ -9,25 +9,32 @@ executors:
       _JAVA_OPTIONS: "-Xmx1500m -XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport -XX:ParallelGCThreads=2 -XX:ConcGCThreads=2 -XX:ParallelGCThreads=2 -Djava.util.concurrent.ForkJoinPool.common.parallelism=2"
       TERM: 'dumb'
 
+orbs:
+  retry: moul/retry@0.6.0
+
 jobs:
   snapshot:
     executor: default-executor
     steps:
       - checkout
+      - retry/install
       - run:
           name: build and deploy
           command: |
             yes | sdkmanager "platforms;android-27" || true
-            ./gradlew :android:assembleRelease && scripts/publish-android-snapshot.sh
+            retry -m 3 ./gradlew :android:assembleRelease
+            retry -m 3 scripts/publish-android-snapshot.sh
   release:
     executor: default-executor
     steps:
       - checkout
+      - retry/install
       - run:
           name: build and deploy
           command: |
             yes | sdkmanager "platforms;android-27" || true
-            ./gradlew :android:assembleRelease && scripts/publish-android-release.sh
+            retry -m 3 ./gradlew :android:assembleRelease
+            retry -m 3 scripts/publish-android-release.sh
 workflows:
   version: 2
   build-and-deploy:
